@@ -28,7 +28,7 @@
                     <Label Text="{Binding LastUpdateDate, StringFormat='UPDATED: {0:dd/MM/yyyy HH:mm}'}" TextColor="Gray" FontAttributes="Italic" FontSize="Small" />
                 </StackLayout>
             </Grid>
-            <Button Text="UPDATE DATABASE" FontAttributes="Bold" TextColor="{StaticResource Primary}" Command="{Binding UpdateDataAction}"/>
+            <Button Text="UPDATE DATABASE" FontAttributes="Bold" TextColor="{StaticResource Primary}" Command="{Binding UpdateDataAction}" />
             <Label Text="* Data taken from Institute of Electrical and Electronics Engineers (IEEE). We are not responsible if there is a vendor name or an inappropriate Address." TextColor="Gray" LineBreakMode="WordWrap" FontAttributes="Italic" FontSize="Small" />
             <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
                 <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="10" WidthRequest="6" />

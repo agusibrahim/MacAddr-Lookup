@@ -27,4 +27,7 @@ Dashboard | Scan | Search
 
 # References
 * https://regauth.standards.ieee.org/standards-ra-web/pub/view.html
-* 
+* https://github.com/PrismLibrary/Prism
+* https://github.com/Redth/ZXing.Net.Mobile
+* https://github.com/bytefish/TinyCsvParser
+* https://theconfuzedsourcecode.wordpress.com/2018/04/02/cool-animating-dots-control-from-xamarin-forms-animations/

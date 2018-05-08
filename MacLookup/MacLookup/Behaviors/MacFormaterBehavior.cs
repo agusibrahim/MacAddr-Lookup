@@ -6,8 +6,7 @@ using Xamarin.Forms;
 
 namespace MacLookup.Behaviors
 {
-    public class IntColonValidationBehavior : Behavior<Entry> {
-        public static IntColonValidationBehavior Instance = new IntColonValidationBehavior();
+    public class MacFormaterBehavior : Behavior<Entry> {
         private int count = 0;
         private int segcount = 3;
         ///
