@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MacLookup.Views.AnimatingDotsControl">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="AnimatingDotsStyle" TargetType="Frame">
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="CornerRadius" Value="6" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="10" />
+                <Setter Property="WidthRequest" Value="10" />
+            </Style>
+
+            <Style
+                x:Key="BackgroundDotsStyle"
+                BasedOn="{StaticResource AnimatingDotsStyle}"
+                TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="DimGray" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid ColumnSpacing="2" HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="25" />
+            </Grid.ColumnDefinitions>
+
+            <!--  Background Dots  -->
+            <Frame Grid.Column="0" Style="{StaticResource BackgroundDotsStyle}" />
+            <Frame Grid.Column="1" Style="{StaticResource BackgroundDotsStyle}" />
+            <Frame Grid.Column="2" Style="{StaticResource BackgroundDotsStyle}" />
+
+            <!--  Animating Dots  -->
+            <Frame
+                x:Name="Dot1"
+                Grid.Column="0"
+                Style="{StaticResource AnimatingDotsStyle}" />
+            <Frame
+                x:Name="Dot2"
+                Grid.Column="1"
+                Style="{StaticResource AnimatingDotsStyle}" />
+            <Frame
+                x:Name="Dot3"
+                Grid.Column="2"
+                Style="{StaticResource AnimatingDotsStyle}" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

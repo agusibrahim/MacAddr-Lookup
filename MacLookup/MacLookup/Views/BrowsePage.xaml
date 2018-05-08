@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:behaviors="clr-namespace:MacLookup.Behaviors;assembly=MacLookup"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="Browse"
+             x:Class="MacLookup.Views.BrowsePage">
+    <NavigationPage.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource" iOS="order.png"/>
+    </NavigationPage.Icon>
+    <StackLayout Orientation="Vertical">
+        <SearchBar x:Name="Searchbar" Placeholder="Search..." VerticalOptions="Start" HorizontalOptions="FillAndExpand" CancelButtonColor="{StaticResource Primary}" SearchCommand="{Binding PerformSearch}" SearchCommandParameter="{Binding Text, Source={x:Reference Searchbar}}">
+            <SearchBar.Behaviors>
+                <behaviors:TextChangedBehavior/>
+            </SearchBar.Behaviors>
+        </SearchBar>
+        <ListView ItemsSource="{Binding MacData}" HasUnevenRows="False" IsGroupingEnabled="False">
+            <ListView.Behaviors>
+                <behaviors:ListviewSelectBehavior/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding OrganisationName}" Detail="{Binding Assigment}" TextColor="Black" DetailColor="Gray"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+  
+</ContentPage>

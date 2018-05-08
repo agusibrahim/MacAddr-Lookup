@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:behaviors="clr-namespace:MacLookup.Behaviors;assembly=MacLookup"
+             xmlns:behaviors1="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="Lookup"
+             x:Class="MacLookup.Views.LookupPage">
+    <NavigationPage.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource" iOS="search.png" />
+    </NavigationPage.Icon>
+    <StackLayout Orientation="Vertical" BackgroundColor="Azure">
+        <Grid BackgroundColor="{StaticResource Primary}" HeightRequest="160" VerticalOptions="Start" Padding="20" ColumnSpacing="0">
+            <Label Text="Mac Address" FontSize="30" FontAttributes="Bold" TextColor="White" />
+            <Entry Placeholder="00:00:00:00:00" Text="{Binding MacInput,Mode=TwoWay}" VerticalOptions="Center" HeightRequest="50" FontSize="21">
+                <Entry.Behaviors>
+                    <behaviors:IntColonValidationBehavior />
+                </Entry.Behaviors>
+                <Entry.TextColor>
+                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource Primary}" Android="White"/>
+                </Entry.TextColor>
+                <Entry.PlaceholderColor>
+                    <OnPlatform x:TypeArguments="Color" iOS="LightGray" Android="#77ffffff"/>
+                </Entry.PlaceholderColor>
+                <Entry.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2" Command="{Binding ClearInputMac}"/>
+                </Entry.GestureRecognizers>
+            </Entry>
+            <Image Source="compact_camera.png" HeightRequest="35" WidthRequest="35" VerticalOptions="Center" HorizontalOptions="End"  Margin="0,0,10,0" Opacity="0.7">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenBarcodeScanner}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Button Text="LOOKUP" VerticalOptions="End" BackgroundColor="White" TextColor="{StaticResource Primary}" FontAttributes="Bold" CornerRadius="25" Command="{Binding PerformSearch}" />
+        </Grid>
+        <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="20,30,10,10">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="icon_flag.png" HeightRequest="20" WidthRequest="20"/>
+                    <Label Text="Origanisation Name" TextColor="DarkSlateGray" FontSize="20" FontAttributes="Bold" />
+                </StackLayout>
+                <Label Text="{Binding OrganisationName, Mode=TwoWay}" TextColor="{StaticResource Primary}" FontSize="17" FontAttributes="Italic" Margin="20,0,0,0" LineBreakMode="WordWrap"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Margin="0,10,0,0">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="icon_map.png" HeightRequest="20" WidthRequest="20"/>
+                    <Label Text="Organisation Address" TextColor="DarkSlateGray" FontSize="20" FontAttributes="Bold"/>
+                </StackLayout>
+                <Label Text="{Binding OrganisationAddr, Mode=TwoWay}" TextColor="{StaticResource Primary}" FontSize="17" Margin="20,0,0,0" FontAttributes="Italic" LineBreakMode="WordWrap"/>
+            </StackLayout>
+        </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

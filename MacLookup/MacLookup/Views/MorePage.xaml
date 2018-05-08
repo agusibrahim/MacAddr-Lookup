@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="More"
+             x:Class="MacLookup.Views.MorePage">
+    <NavigationPage.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource" iOS="keypad.png" />
+    </NavigationPage.Icon>
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="20">
+            <StackLayout Orientation="Horizontal">
+                <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="10" WidthRequest="6" />
+                <Label Text="Data Collection" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
+            <Grid Margin="0,10,0,0" ColumnSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="icon_database.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" />
+                <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                    <Label Text="{Binding DbCount, StringFormat='OUI DATA ({0:N0})'}" />
+                    <Label Text="{Binding LastUpdateDate, StringFormat='UPDATED: {0:dd/MM/yyyy HH:mm}'}" TextColor="Gray" FontAttributes="Italic" FontSize="Small" />
+                </StackLayout>
+            </Grid>
+            <Button Text="UPDATE DATABASE" FontAttributes="Bold" TextColor="{StaticResource Primary}" Command="{Binding UpdateDataAction}"/>
+            <Label Text="* Data taken from Institute of Electrical and Electronics Engineers (IEEE). We are not responsible if there is a vendor name or an inappropriate Address." TextColor="Gray" LineBreakMode="WordWrap" FontAttributes="Italic" FontSize="Small" />
+            <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+                <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="10" WidthRequest="6" />
+                <Label Text="About" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
+            <Label TextColor="#444444" Margin="0,6,0,0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="App Created by " />
+                        <Span Text="Agus Ibrahim" FontAttributes="Bold" />
+                        <Span Text=". Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non dui quis diam dictum commodo nec sit amet urna. Morbi imperdiet arcu et odio dictum, vitae dapibus elit posuere." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
